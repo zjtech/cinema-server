@@ -1,0 +1,75 @@
+//apply the dependencies defined in the customized plugin and then the sub projects can access them
+apply from: 'dependencies.gradle'
+
+/**
+ * Apply global settings to all projects
+ */
+buildscript {
+    apply from: 'dependencies.gradle'
+    repositories {
+        maven {
+            //then try to retrieve jars from nexus
+            url nexusPublicUrl
+        }
+        jcenter()
+    }
+
+    dependencies {
+        classpath libs.'spring-boot-gradle-plugin'
+        classpath libs.'dependency-management-plugin'  //todo : not sure if it is required here
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'jacoco'
+apply plugin: 'project-report'
+
+/*apply following plugins in sub projects as needed*/
+//  apply plugin: 'org.sonarqube'
+apply plugin: "io.spring.dependency-management"
+apply plugin: 'org.springframework.boot'
+apply plugin: 'maven-publish'
+//  apply plugin: 'spring-cloud-contract'
+
+sourceCompatibility = projectInfo.sourceCompatibility
+targetCompatibility = projectInfo.targetCompatibility
+
+group = projectInfo.group
+version = projectInfo.version
+archivesBaseName = rootProject.name
+
+repositories {
+    maven {
+        //then try to retrieve jars from nexus
+        url nexusPublicUrl
+    }
+    jcenter()
+}
+
+configurations {
+    //exclude commons-loggin since we use logback+slf4j libs
+    all*.exclude module: 'commons-logging'
+}
+
+
+dependencies {
+    compile libs.lombok
+    compile libs.'spring-boot-starter-webflux'
+//    compile libs.'spring-boot-starter-cache'
+    compile libs.'spring-boot-starter-aop'
+//  compile libs.'spring-boot-starter-data-mongodb-reactive'
+//    compile libs.'spring-boot-starter-data-mongodb'
+    testCompile libs.'spring-boot-starter-test'
+}
+
+/**
+ * List all jars this project depends on
+ */
+task listJars(description: 'Display all dependencies.') {
+    doLast {
+        configurations.compile.each { File file -> println "\t" + file.name }
+    }
+}
