@@ -1,3 +1,2 @@
 # movie-server
 
-# cinema-server

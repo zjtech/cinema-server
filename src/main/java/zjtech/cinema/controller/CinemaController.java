@@ -108,25 +108,25 @@ public class CinemaController {
     videoDto.setId("30");
     videoDto.setName("cartoon name1");
     videoDto.setActors("act1,act2,act3,act4");
-    varietyShowList.add(videoDto);
+    cartoonList.add(videoDto);
 
     videoDto = new VideoDto();
     videoDto.setId("31");
     videoDto.setName("cartoon name2");
     videoDto.setActors("act1,act2,act3,act4");
-    varietyShowList.add(videoDto);
+    cartoonList.add(videoDto);
 
     videoDto = new VideoDto();
     videoDto.setId("33");
     videoDto.setName("cartoon name3");
     videoDto.setActors("act1,act2,act3,act4");
-    varietyShowList.add(videoDto);
+    cartoonList.add(videoDto);
 
     videoDto = new VideoDto();
     videoDto.setId("34");
     videoDto.setName("cartoon name4");
     videoDto.setActors("act1,act2,act3,act4");
-    varietyShowList.add(videoDto);
+    cartoonList.add(videoDto);
 
     Map<String, List<VideoDto>> map = new HashMap<>();
     map.put(VideoTypes.movie.name(), movieList);
