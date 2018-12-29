@@ -54,7 +54,7 @@ ext.libs = [
 
 
         'mysql'                                     : 'mysql:mysql-connector-java',
-        'lombok'                                    : 'org.projectlombok:lombok:1.18.0',
+        'lombok'                                    : 'org.projectlombok:lombok:1.18.4',
         'h2-database'                               : 'com.h2database:h2',
 
         //swagger documentation

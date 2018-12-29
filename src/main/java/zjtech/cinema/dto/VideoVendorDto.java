@@ -1,10 +1,11 @@
-package zjtech.cinema.document;
+package zjtech.cinema.dto;
+
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import lombok.Getter;
-import lombok.Setter;
 
 @Getter
 @Setter

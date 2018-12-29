@@ -8,6 +8,13 @@ spring:
 #    include: mongodb
 
 
+video:
+  type:
+    movie: 1
+    tv: 2
+    show: 3
+    cartoon: 4
+
 # Set log level
 logging:
   level:

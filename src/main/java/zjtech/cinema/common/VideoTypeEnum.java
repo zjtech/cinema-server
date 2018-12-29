@@ -1,5 +1,5 @@
 package zjtech.cinema.common;
 
-public enum VideoTypes {
+public enum VideoTypeEnum {
   movie, teleplay, varietyShow, cartoon
 }
