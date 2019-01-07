@@ -1,14 +1,15 @@
 package zjtech.cinema.dto;
 
+import java.io.Serializable;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.io.Serializable;
+import org.springframework.data.annotation.Id;
 
 @Getter
 @Setter
 public class VideoBriefDto implements Serializable {
 
+  @Id
   private String id;
   private String dbId;
   private String name;

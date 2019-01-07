@@ -8,6 +8,5 @@ spring:
       repositories:
         type: auto
       authentication-database: admin
-      database: cinema
-#      uri: mongodb://db_user:Wzj_mysql01@localhost:27017/image-service
-
+      database: coolie-service
+#      uri: mongodb://db_user:Wzj_mysql01@localhost:27017/coolie-service

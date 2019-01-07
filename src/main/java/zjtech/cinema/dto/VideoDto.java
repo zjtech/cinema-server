@@ -1,11 +1,10 @@
 package zjtech.cinema.dto;
 
+import java.util.ArrayList;
+import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Video DTO
@@ -14,6 +13,9 @@ import java.util.List;
 @Getter
 @Setter
 public class VideoDto extends VideoBriefDto {
+
+  public static String COLLECTION_NAME = "video";
+
   private String language;
   private String score;
   private String region;

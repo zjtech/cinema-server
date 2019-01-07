@@ -1,9 +1,8 @@
 package zjtech.cinema.dto;
 
+import java.io.Serializable;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.io.Serializable;
 
 @Setter
 @Getter

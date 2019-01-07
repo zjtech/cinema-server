@@ -5,19 +5,19 @@ apply from: 'dependencies.gradle'
  * Apply global settings to all projects
  */
 buildscript {
-  apply from: 'dependencies.gradle'
-  repositories {
-    maven {
-      //then try to retrieve jars from nexus
-      url nexusPublicUrl
+    apply from: 'dependencies.gradle'
+    repositories {
+        maven {
+            //then try to retrieve jars from nexus
+            url nexusPublicUrl
+        }
+        jcenter()
     }
-    jcenter()
-  }
 
-  dependencies {
-    classpath libs.'spring-boot-gradle-plugin'
-    classpath libs.'dependency-management-plugin'  //todo : not sure if it is required here
-  }
+    dependencies {
+        classpath libs.'spring-boot-gradle-plugin'
+        classpath libs.'dependency-management-plugin'  //todo : not sure if it is required here
+    }
 }
 
 apply plugin: 'java'
@@ -42,34 +42,34 @@ version = projectInfo.version
 archivesBaseName = rootProject.name
 
 repositories {
-  maven {
-    //then try to retrieve jars from nexus
-    url nexusPublicUrl
-  }
-  jcenter()
+    maven {
+        //then try to retrieve jars from nexus
+        url nexusPublicUrl
+    }
+    jcenter()
 }
 
 configurations {
-  //exclude commons-loggin since we use logback+slf4j libs
-  all*.exclude module: 'commons-logging'
+    //exclude commons-loggin since we use logback+slf4j libs
+    all*.exclude module: 'commons-logging'
 }
 
 
 dependencies {
-  compile libs.lombok
-  compile libs.'spring-boot-starter-webflux'
+    compile libs.lombok
+    compile libs.'spring-boot-starter-webflux'
 //    compile libs.'spring-boot-starter-cache'
-  compile libs.'spring-boot-starter-aop'
+    compile libs.'spring-boot-starter-aop'
 //  compile libs.'spring-boot-starter-data-mongodb-reactive'
-  compile libs.'spring-boot-starter-data-mongodb'
-  testCompile libs.'spring-boot-starter-test'
+    compile libs.'spring-boot-starter-data-mongodb'
+    testCompile libs.'spring-boot-starter-test'
 }
 
 /**
  * List all jars this project depends on
  */
 task listJars(description: 'Display all dependencies.') {
-  doLast {
-    configurations.compile.each { File file -> println "\t" + file.name }
-  }
+    doLast {
+        configurations.compile.each { File file -> println "\t" + file.name }
+    }
 }

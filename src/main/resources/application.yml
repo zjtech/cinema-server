@@ -4,19 +4,19 @@ server:
 spring:
   application:
     name: cinema-server
-#  profiles:
-#    include: mongodb
-
+  profiles:
+    include: mongodb
 
 video:
+  page-size: 10
   type:
     movie: 1
-    tv: 2
-    show: 3
+    teleplay: 2
+    vshow: 3
     cartoon: 4
 
 # Set log level
 logging:
   level:
     root: INFO
-    org.springframework.data.mongodb: WARN
+    org.springframework.data.mongodb.core.MongoTemplate: DEBUG
