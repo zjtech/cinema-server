@@ -1,5 +1,3 @@
-//apply the dependencies defined in the customized plugin and then the sub projects can access them
-apply from: 'dependencies.gradle'
 
 /**
  * Apply global settings to all projects
@@ -20,6 +18,15 @@ buildscript {
     }
 }
 
+plugins {
+  id 'io.franzbecker.gradle-lombok' version '1.14'
+}
+lombok {
+  version = '1.18.4'
+}
+
+//apply the dependencies defined in the customized plugin and then the sub projects can access them
+apply from: 'dependencies.gradle'
 apply plugin: 'java'
 apply plugin: 'maven'
 apply plugin: 'eclipse'
@@ -56,7 +63,6 @@ configurations {
 
 
 dependencies {
-    compile libs.lombok
     compile libs.'spring-boot-starter-webflux'
 //    compile libs.'spring-boot-starter-cache'
     compile libs.'spring-boot-starter-aop'
